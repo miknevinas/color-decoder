@@ -1,0 +1,96 @@
+<div class="container">
+  <div>
+    <div>Color 1</div>
+    <div id="circle-1" class="circle"></div>
+    <div id="label-1">#000000</div>
+  </div>
+  <div>
+    <div>Color 2</div>
+    <div id="circle-2" class="circle"></div>
+    <div id="label-2">#000000</div>
+  </div>
+  <div>
+    <div>Mixed</div>
+    <div id="circle-mixed" class="circle"></div>
+    <div id="label-mixed">#000000</div>
+  </div>
+  <div>
+    <div>Secret</div>
+    <div id="circle-secret" class="circle"></div>
+    <div id="label-secret">#000000</div>
+  </div>
+</div>
+
+<h2>The Color Mixer</h2>
+<h3>Background</h3>
+<p>
+  The usage of HTML, JavaScript and CSS are undoubtedly ubiquitously across the modern internet. One of the major attributes used across all three formats is the hexadecimal string representation of color.
+</p>
+<p>
+  More info on <a href="https://en.wikipedia.org/wiki/Web_colors">Web Colors</a>
+</p>
+<h3>Exercise</h3>
+<p>
+  Using <a href="#readMe"><code>fetch()</code></a>, retrieve two starting colors from the remote server by substituting your email into the provided link <a href="#remoteApi">here</a>. After fetching the two color values, the decoder function will produce a secret color by first averaging the colors and then inverting that result. Finally, your code should color in the provided circles with the appropriate colors and list their hex codes.
+</p>
+<p>
+  The secret color is produced in two steps:
+</p>
+<ol>
+  <li>Average the two starting colors rounding down.
+    <ul>
+      <li>Each color channel byte should be calculated independently of one another.</li>
+      <li>For these hex inputs, you should end up with this Mixed result:</li>
+      <pre>#123456  #ABCDEF  Mixed
+R 12     R AB     R 5E
+G 34     G CD     G 80
+B 56     B EF     B A2
+      </pre>
+    </ul>
+  </li>
+  <li>Invert the resulting color from step one.
+    <ul>
+      <li>Each color channel byte or hex character should be calculated independently.</li>
+      <li>For this hex input, you should end up with this Secret result:</li>
+      <pre>#5E80A2  Secret
+R 5E     R A1
+G 80     G 7F
+B A2     B 5D
+      </pre>
+    </ul>
+  </li>
+</ol>
+
+<p>
+  You may use anything built into the JavaScript programming language, such as base conversion, but you can also do it manually. Keep all changes in the JavaScript + jQuery section only.
+</p>
+
+<h4 id="remoteApi">Remote API</h4>
+
+URL:
+Call this endpoint by supplying your email at the end, replace <span class="email">:email</span> with your email address; it is a path parameter.
+<pre>https://eworldes-color-mixer.cyclic.app/colors/<span class="email">:email</span></pre> Model:
+<pre>{
+    "color1": "808000",
+    "color2": "A0522D"
+}</pre>
+
+<h3>Examples</h3>
+
+<pre>
+decode("example1@gmail.com") 
+color1: "#A363F5", color2: "#A7277F"
+mixed:  "#A545BA", secret: "#5ABA45"
+
+decode("example2@gmail.com") 
+color1: "#131B23", color2: "#D3BE8D" 
+mixed:  "#736C58", secret: "#8C93A7"
+</pre>
+
+<h3 id="readMe">Resources</h3>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Fetch API Documentation</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Web_colors">Information on Web Colors</a></li>
+</ul>
+
+<div style="margin-bottom: 50px"></div>
